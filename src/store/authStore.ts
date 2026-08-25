@@ -1,12 +1,14 @@
 import { create } from 'zustand';
 
 interface User {
-    id:        number;
-    username:  string;
-    email:     string;
-    firstname: string;
-    lastname:  string;
-    roles:     string[];
+    id:          number;
+    username:    string;
+    email:       string;
+    firstname:   string;
+    lastname:    string;
+    phoneNumber: string | null;
+    avatarUrl:   string | null;
+    roles:       { id: number; name: string; createdAt: string; }[];
 }
 
 interface AuthStore {
