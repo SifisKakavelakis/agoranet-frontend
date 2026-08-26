@@ -40,8 +40,16 @@ export function SignupForm({
       toast.dismiss('session-expired');
       navigate('/');
     } catch (err: any) {
-      const message = err.response?.data?.message;
-      toast.error(typeof message === 'string' ? message : 'Registration failed. Please try again.');
+      const data = err.response?.data;
+      let message = 'Registration failed. Please try again.';
+
+      if (typeof data?.message === 'string') {
+        message = data.message;
+      } else if (Array.isArray(data?.message) && data.message[0]?.message) {
+        message = data.message[0].message;
+      }
+
+      toast.error(message);
     }
   };
 
