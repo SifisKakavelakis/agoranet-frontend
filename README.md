@@ -20,6 +20,7 @@ A modern marketplace frontend for buying and selling second-hand items, built wi
 - [API Layer](#api-layer)
 - [Authentication](#authentication)
 - [Environment Variables](#environment-variables)
+- [Build & Deploy](#build--deploy)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -209,6 +210,40 @@ Routes that require authentication are wrapped in `ProtectedRoute` which redirec
 |----------|-------------|----------|
 | `VITE_API_URL` | Backend API base URL | Yes |
 | `VITE_BASE_URL` | Backend base URL for images | Yes |
+
+## Build & Deploy
+
+### Build
+
+```bash
+npm run build
+```
+
+The compiled files will be output to the `dist/` directory.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+### Deploy to Vercel
+
+1. Install Vercel CLI
+```bash
+npm install -g vercel
+```
+
+2. Deploy
+```bash
+vercel
+```
+
+Or connect your GitHub repository directly on [Vercel](https://vercel.com) for automatic deployments.
+
+Make sure to set the environment variables on Vercel:
+- `VITE_API_URL` — Your backend API URL
+- `VITE_BASE_URL` — Your backend base URL
 
 ## Contributing
 
