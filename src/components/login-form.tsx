@@ -31,7 +31,8 @@ export function LoginForm({
       toast.dismiss('session-expired');
       navigate('/');
     } catch (err: any) {
-      toast.error(err.response?.data?.message || 'Invalid credentials. Please try again.');
+      const message = err.response?.data?.message;
+      toast.error(typeof message === 'string' ? message : 'Invalid credentials. Please try again.');
     }
   };
 
