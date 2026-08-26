@@ -5,7 +5,6 @@ import {
   FieldDescription,
   FieldGroup,
   FieldLabel,
-  FieldSeparator,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
@@ -73,11 +72,7 @@ export function LoginForm({
           <Field>
             <Button type="submit">Login</Button>
           </Field>
-          <FieldSeparator>Or continue with</FieldSeparator>
           <Field>
-            <Button variant="outline" type="button">
-              GitHub
-            </Button>
             <FieldDescription className="text-center">
               Don&apos;t have an account?{" "}
               <a href="/register" className="underline underline-offset-4">
