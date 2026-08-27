@@ -92,19 +92,18 @@ export default function HomePage() {
                     {Array.from({ length: totalPages }, (_, i) => i + 1)
                         .filter(p => p === 1 || p === totalPages || Math.abs(p - page) <= 2)
                         .map((p, idx, arr) => (
-                            <>
+                            <div key={p} className="flex items-center gap-2">
                                 {idx > 0 && arr[idx - 1] !== p - 1 && (
-                                    <span key={`dots-${p}`} className="text-gray-400">...</span>
+                                    <span className="text-gray-400">...</span>
                                 )}
                                 <Button
-                                    key={p}
                                     variant={p === page ? 'default' : 'outline'}
                                     size="sm"
                                     onClick={() => handlePageChange(p)}
                                 >
                                     {p}
                                 </Button>
-                            </>
+                            </div>
                         ))
                     }
 
