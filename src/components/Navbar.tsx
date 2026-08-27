@@ -69,7 +69,7 @@ export default function Navbar() {
                             )}
                             <DropdownMenu>
                                 <DropdownMenuTrigger>
-                                    <button className="flex items-center gap-1 hover:opacity-80 transition-opacity">
+                                    <div className="flex items-center gap-1 hover:opacity-80 transition-opacity cursor-pointer">
                                         <div className="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-600 overflow-hidden">
                                             {user?.avatarUrl ? (
                                                 <img
@@ -82,7 +82,7 @@ export default function Navbar() {
                                             )}
                                         </div>
                                         <ChevronDown size={14} className="text-gray-500" />
-                                    </button>
+                                    </div>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end" className="w-48">
                                     <DropdownMenuItem onClick={() => navigate(`/profile/${user?.username}`)}>
