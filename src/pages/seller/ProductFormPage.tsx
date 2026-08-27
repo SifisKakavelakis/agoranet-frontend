@@ -69,7 +69,8 @@ export default function ProductFormPage() {
             setExistingImages(prev => prev.filter(img => img.id !== imageId));
             toast.success('Image deleted successfully');
         } catch (err: any) {
-            toast.error(err.response?.data?.message || 'Failed to delete image');
+            const message = err.response?.data?.message;
+            toast.error(typeof message === 'string' ? message : 'Failed to delete image');
         }
     };
 
@@ -103,7 +104,14 @@ export default function ProductFormPage() {
             }
             navigate('/dashboard');
         } catch (err: any) {
-            toast.error(err.response?.data?.message || 'Something went wrong');
+            const data = err.response?.data;
+            let message = 'Something went wrong';
+            if (typeof data?.message === 'string') {
+                message = data.message;
+            } else if (Array.isArray(data?.message) && data.message[0]?.message) {
+                message = data.message[0].message;
+            }
+            toast.error(message);
         } finally {
             setLoading(false);
         }
